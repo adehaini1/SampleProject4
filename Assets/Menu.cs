@@ -18,13 +18,16 @@ public class Menu : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-		if(GUI.Button(new Rect(origin_x, origin_y, buttonWidth, buttonHeight), "Scene 1")) {
+		if(GUI.Button(new Rect(origin_x, origin_y, buttonWidth, buttonHeight), "Character Controller")) {
 			Application.LoadLevel(1);
 		}
-		if(GUI.Button(new Rect(origin_x, origin_y + buttonHeight + 10, buttonWidth, buttonHeight), "Scene 2")) {
+		if(GUI.Button(new Rect(origin_x, origin_y + buttonHeight + 10, buttonWidth, buttonHeight), "Rigibody Controller")) {
 			Application.LoadLevel(2);
 		}
-		if(GUI.Button(new Rect(origin_x, origin_y + buttonHeight * 2 + 20, buttonWidth, buttonHeight), "Exit")) {
+		if(GUI.Button(new Rect(origin_x, origin_y + buttonHeight * 2 + 20, buttonWidth, buttonHeight), "First Person Controller")) {
+			Application.LoadLevel(3);
+		}
+		if(GUI.Button(new Rect(origin_x, origin_y + buttonHeight * 3 + 30, buttonWidth, buttonHeight), "Exit")) {
 			#if UNITY_EDITOR
 				UnityEditor.EditorApplication.isPlaying = false;
 			#else
