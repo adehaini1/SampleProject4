@@ -16,8 +16,11 @@ public class FirstPersonController : MonoBehaviour {
 	private float rotationSpeed = 1f;
 	private float minY = -60f;
 	private float maxY = 60f;
-	private float rotationY = 0f;
+	private float rotationY = 10f;
 	private float rotationX = 0f;
+
+	public GameObject bulletPrefab;
+	public Transform bulletSpawn;
 
 	// Use this for initialization
 	void Start () {
@@ -48,5 +51,34 @@ public class FirstPersonController : MonoBehaviour {
 			audio.Play();
 			rbody.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
 		}
+
+		if(Input.GetButtonDown("Fire1")) {
+			Fire();
+		}
+	}
+
+	void Fire() {
+		var bullet = (GameObject)Instantiate(
+			bulletPrefab,
+			bulletSpawn.position,
+			bulletSpawn.rotation);
+		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+		Destroy(bullet, 2.0f);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
